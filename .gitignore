@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+
+# Machine-specific local config — never commit
+local.properties
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+
+# OS
+.DS_Store
+
+# Native build / captures
+/captures
+.externalNativeBuild
+.cxx
+
+# Local tooling artifacts
+project_dump.txt
