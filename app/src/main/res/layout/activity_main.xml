@@ -38,6 +38,22 @@
                 android:layout_height="wrap_content"
                 android:text="App content goes here..." />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/show_data_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_margin"
+                android:text="Show Collected Data"
+                style="@style/PrimaryButton.Inverse" />
+
+            <TextView
+                android:id="@+id/data_summary_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_margin"
+                android:fontFamily="monospace"
+                android:textSize="14sp" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

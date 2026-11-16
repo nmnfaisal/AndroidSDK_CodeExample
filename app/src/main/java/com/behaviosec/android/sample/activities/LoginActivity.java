@@ -46,14 +46,17 @@ public class LoginActivity extends AppCompatActivity
 		final String username = usernameField.getText().toString();
 		final String password = passwordField.getText().toString();
 
+		usernameField.setText("behaviouser");
+		passwordField.setText("password");
+
 		//TODO: Validate input: not empty, minimum length, etc.
 
 		// Check credentials with the server, together with the used journeyId
 		checkCredentials(username, password);
 
 		// Clean fields
-		usernameField.setText("");
-		passwordField.setText("");
+//		usernameField.setText("");
+//		passwordField.setText("");
 	}
 
 	private void checkCredentials(final String username, final String password)
