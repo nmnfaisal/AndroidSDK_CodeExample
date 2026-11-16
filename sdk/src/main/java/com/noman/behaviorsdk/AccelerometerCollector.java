@@ -71,8 +71,11 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 	public void onActivityStarted(@NonNull Activity activity)
 	{
 		startedActivityCount++;
+		Log.d(TAG, "onActivityStarted: " + activity.getClass().getSimpleName()
+				+ " | visibleCount=" + startedActivityCount);
 		if (startedActivityCount == 1)
 		{
+			Log.d(TAG, "App entered foreground — registering accelerometer");
 			registerSensor();
 		}
 	}
@@ -81,14 +84,18 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 	public void onActivityStopped(@NonNull Activity activity)
 	{
 		startedActivityCount--;
+		Log.d(TAG, "onActivityStopped: " + activity.getClass().getSimpleName()
+				+ " | visibleCount=" + startedActivityCount);
 		if (startedActivityCount == 0)
 		{
+			Log.d(TAG, "App entered background — unregistering accelerometer (battery save)");
 			unregisterSensor();
 		}
 	}
 
 	void stopListening()
 	{
+		Log.d(TAG, "stopListening called — force unregistering accelerometer");
 		startedActivityCount = 0;
 		unregisterSensor();
 	}
