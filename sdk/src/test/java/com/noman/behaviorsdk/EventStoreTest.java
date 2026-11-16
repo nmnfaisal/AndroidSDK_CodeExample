@@ -22,9 +22,9 @@ public class EventStoreTest
 	private EventStore store;
 
 	@Before
-	public void setUp()
-	{
+	public void setUp() {
 		store = new EventStore();
+		store.setAccepting(true);
 	}
 
 	@Test
