@@ -16,6 +16,3 @@ local.properties
 /captures
 .externalNativeBuild
 .cxx
-
-# Local tooling artifacts
-project_dump.txt
