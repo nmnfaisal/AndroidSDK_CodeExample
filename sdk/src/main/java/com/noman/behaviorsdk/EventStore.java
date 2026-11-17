@@ -12,10 +12,9 @@ final class EventStore
 {
 	private final Object lock = new Object();
 	private final List<SensorDataEvent> events = new ArrayList<>();
-	private boolean accepting = false;			// to stop collecting when stop button is pressed
+	private volatile boolean accepting = false;
 
-
-	synchronized void setAccepting(boolean value) {
+	void setAccepting(boolean value) {
 		this.accepting = value;
 	}
 

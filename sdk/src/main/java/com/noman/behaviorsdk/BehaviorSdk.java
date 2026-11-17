@@ -30,6 +30,7 @@ public final class BehaviorSdk {
 		sEventStore = new EventStore();
 		sTouchCollector = new TouchCollector(sEventStore);
 		sAccelerometerCollector = new AccelerometerCollector(application, sEventStore);
+		sApplication.registerActivityLifecycleCallbacks(sTouchCollector);
 	}
 
 	public static void start() {
@@ -45,7 +46,6 @@ public final class BehaviorSdk {
 
 		sCollecting = true;
 		sEventStore.setAccepting(true);
-		sApplication.registerActivityLifecycleCallbacks(sTouchCollector);
 		sApplication.registerActivityLifecycleCallbacks(sAccelerometerCollector);
 		sAccelerometerCollector.startListening();
 	}
@@ -63,7 +63,6 @@ public final class BehaviorSdk {
 
 		sCollecting = false;
 		sEventStore.setAccepting(false);
-		sApplication.unregisterActivityLifecycleCallbacks(sTouchCollector);
 		sApplication.unregisterActivityLifecycleCallbacks(sAccelerometerCollector);
 		sAccelerometerCollector.stopListening();
 	}
