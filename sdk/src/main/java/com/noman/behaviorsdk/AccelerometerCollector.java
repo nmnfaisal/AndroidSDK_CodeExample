@@ -93,10 +93,14 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 		}
 	}
 
+	void startListening()
+	{
+		if (startedActivityCount > 0) {registerSensor();}
+	}
+
 	void stopListening()
 	{
 		Log.d(TAG, "stopListening called — force unregistering accelerometer");
-		startedActivityCount = 0;
 		unregisterSensor();
 	}
 

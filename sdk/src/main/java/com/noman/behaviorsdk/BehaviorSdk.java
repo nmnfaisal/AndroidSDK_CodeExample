@@ -47,6 +47,7 @@ public final class BehaviorSdk {
 		sEventStore.setAccepting(true);
 		sApplication.registerActivityLifecycleCallbacks(sTouchCollector);
 		sApplication.registerActivityLifecycleCallbacks(sAccelerometerCollector);
+		sAccelerometerCollector.startListening();
 	}
 
 	public static void stop() {
