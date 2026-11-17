@@ -65,17 +65,17 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 	{
 	}
 
-	// --- ActivityLifecycleCallbacks (foreground start/stop counting) ---
+	//  ActivityLifecycleCallbacks (foreground start/stop counting)
 
 	@Override
 	public void onActivityStarted(@NonNull Activity activity)
 	{
 		startedActivityCount++;
-		Log.d(TAG, "onActivityStarted: " + activity.getClass().getSimpleName()
-				+ " | visibleCount=" + startedActivityCount);
+		// Log.d(TAG, "onActivityStarted: " + activity.getClass().getSimpleName()
+		//		+ " | visibleCount=" + startedActivityCount);
 		if (startedActivityCount == 1)
 		{
-			Log.d(TAG, "App entered foreground — registering accelerometer");
+			// Log.d(TAG, "App entered foreground — registering accelerometer");
 			registerSensor();
 		}
 	}
@@ -84,11 +84,11 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 	public void onActivityStopped(@NonNull Activity activity)
 	{
 		startedActivityCount--;
-		Log.d(TAG, "onActivityStopped: " + activity.getClass().getSimpleName()
-				+ " | visibleCount=" + startedActivityCount);
+		// Log.d(TAG, "onActivityStopped: " + activity.getClass().getSimpleName()
+		//		+ " | visibleCount=" + startedActivityCount);
 		if (startedActivityCount == 0)
 		{
-			Log.d(TAG, "App entered background — unregistering accelerometer (battery save)");
+			// Log.d(TAG, "App entered background — unregistering accelerometer (battery save)");
 			unregisterSensor();
 		}
 	}
@@ -98,9 +98,10 @@ final class AccelerometerCollector implements Application.ActivityLifecycleCallb
 		if (startedActivityCount > 0) {registerSensor();}
 	}
 
+	// Debug logs commented out. SDK internals shouldn't leak to the host app's logcat
 	void stopListening()
 	{
-		Log.d(TAG, "stopListening called — force unregistering accelerometer");
+//		Log.d(TAG, "stopListening called — force unregistering accelerometer");
 		unregisterSensor();
 	}
 
